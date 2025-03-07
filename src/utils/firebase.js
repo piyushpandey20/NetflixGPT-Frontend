@@ -1,12 +1,21 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import {
+  API_KEY,
+  AUTH_DOMAIN,
+  PROJECT_ID,
+  STORAGE_BKT,
+  MESSAGE_ID,
+  APP_ID,
+} from "../../.env";
+
 const firebaseConfig = {
-  apiKey: "AIzaSyA9RYskEaI4ur4ZGobZ7mhnXb3unqWd4Mk",
-  authDomain: "netflix-gpt-2893b.firebaseapp.com",
-  projectId: "netflix-gpt-2893b",
-  storageBucket: "netflix-gpt-2893b.firebasestorage.app",
-  messagingSenderId: "619041739309",
-  appId: "1:619041739309:web:f71e1a089036cac5845ea4",
+  apiKey: { API_KEY },
+  authDomain: { AUTH_DOMAIN },
+  projectId: { PROJECT_ID },
+  storageBucket: { STORAGE_BKT },
+  messagingSenderId: { MESSAGE_ID },
+  appId: { APP_ID },
 };
 
 const app = initializeApp(firebaseConfig);
