@@ -1,21 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import {
-  API_KEY,
-  AUTH_DOMAIN,
-  PROJECT_ID,
-  STORAGE_BKT,
-  MESSAGE_ID,
-  APP_ID,
-} from "../../.env";
 
 const firebaseConfig = {
-  apiKey: { API_KEY },
-  authDomain: { AUTH_DOMAIN },
-  projectId: { PROJECT_ID },
-  storageBucket: { STORAGE_BKT },
-  messagingSenderId: { MESSAGE_ID },
-  appId: { APP_ID },
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BKT,
+  messagingSenderId: process.env.REACT_APP_MESSAGE_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
