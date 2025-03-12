@@ -1,15 +1,15 @@
 import React, { useRef, useState } from "react";
-import Header from "./Header";
-import { checkValidData } from "../utils/validate";
+import Header from "../Header";
+import { checkValidData } from "../../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../utils/firebase";
+import { auth } from "../../utils/firebase";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
-import { BACKGROUND_IMG, USER_AVATAR } from "../utils/constants";
+import { addUser } from "../../redux/slices/userSlice";
+import { BACKGROUND_IMG, USER_AVATAR } from "../../utils/constants";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -80,14 +80,14 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          className="w-screen h-screen"
+          className="w-screen h-screen object-cover"
           src={BACKGROUND_IMG}
           alt="background-image"
         />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute my-36 mx-auto right-0 left-0 w-3/12 text-white bg-black p-10 rounded-lg bg-opacity-80"
+        className="absolute my-36 mx-auto right-0 left-0 w-full md:w-3/12 text-white bg-black p-10 rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {isSignIn ? "Sign In" : "Sign Up"}

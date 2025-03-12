@@ -3,10 +3,10 @@ import React, { useEffect } from "react";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser } from "../utils/userSlice";
+import { addUser, removeUser } from "../redux/slices/userSlice";
 import { LOGO, SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
-import { toggleGPTSearchView } from "../utils/gptSlice";
-import { changeLanguage } from "../utils/configSlice";
+import { toggleGPTSearchView } from "../redux/slices/gptSlice";
+import { changeLanguage } from "../redux/slices/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -46,10 +46,10 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full absolute px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-44" src={LOGO} alt="logo" />
+    <div className="w-full absolute px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row md:justify-between">
+      <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
       {user && (
-        <div className="flex p-2 justify-between items-center">
+        <div className="flex p-2 -m-4 md:m-0 justify-between items-center">
           {showGPTSearch && (
             <select
               className="p-2 m-2 bg-gray-900 text-white"
@@ -73,11 +73,8 @@ const Header = () => {
             src={USER_AVATAR}
             alt="user-icon"
           />
-          <button
-            onClick={handleSignOut}
-            className="bg-blue-600 rounded-lg py-2 px-4 my-2 mx-4 text-white font-bold"
-          >
-            Sign Out
+          <button onClick={handleSignOut} className="text-white font-bold">
+            [Sign Out]
           </button>
         </div>
       )}
